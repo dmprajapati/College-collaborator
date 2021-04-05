@@ -75,7 +75,7 @@ export default function Home({ navigation }) {
                 color="#fff"
                 size={50}
               />
-              
+
             </View>
 
           </View>
@@ -157,8 +157,8 @@ const styles = StyleSheet.create({
   card_title: {
     color: '#000',
     fontSize: 20,
-    justifyContent:'flex-start'
-    
+    justifyContent: 'flex-start'
+
   }
 
 

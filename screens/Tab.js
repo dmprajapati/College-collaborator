@@ -5,38 +5,38 @@ import Chat from './Homecomponent/Chat';
 import Notice from './Homecomponent/Notice';
 import Home from './Homecomponent/Home';
 import React from 'react';
-import { View , TouchableOpacity, Text} from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 
 
 
 const Tab1 = createMaterialTopTabNavigator();
 
-export default  function MyTabs() {
+export default function MyTabs() {
   return (
-    
-        <NavigationContainer>
-        <Tab1.Navigator tabBarOptions={{showIcon:true}} tabBarPosition={'bottom'} tabBar={props => <MyTabBar {...props} />}  >
-      <Tab1.Screen name="Home"  component={Home} />
-      <Tab1.Screen name="Notice" component={Notice} />
-      <Tab1.Screen name="Chat" component={Chat} />
-    </Tab1.Navigator>
+
+    <NavigationContainer>
+      <Tab1.Navigator tabBarOptions={{ showIcon: true }} tabBarPosition={'bottom'} tabBar={props => <MyTabBar {...props} />}  >
+        <Tab1.Screen name="Home" component={Home} />
+        <Tab1.Screen name="Notice" component={Notice} />
+        <Tab1.Screen name="Chat" component={Chat} />
+      </Tab1.Navigator>
     </NavigationContainer>
-    
-    
+
+
   );
 }
 
 function MyTabBar({ state, descriptors, navigation }) {
   return (
-    <View style={{ flexDirection: 'row',backgroundColor:"#3498db",height:60,borderTopLeftRadius:30,borderTopRightRadius:30,alignItems:'center',paddingLeft:65 }}>
+    <View style={{ flexDirection: 'row', backgroundColor: "#3498db", height: 60, borderTopLeftRadius: 30, borderTopRightRadius: 30, alignItems: 'center', paddingLeft: 65 }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-            ? options.title
-            : route.name;
+              ? options.title
+              : route.name;
 
         const isFocused = state.index === index;
 

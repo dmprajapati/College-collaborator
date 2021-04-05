@@ -20,8 +20,6 @@ export default function Chat({ navigation }) {
 
             <View style={styles.top}>
 
-
-
                 <View style={styles.top_icon}>
                     <Icon
                         name="menu"

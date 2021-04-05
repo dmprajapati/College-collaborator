@@ -1,141 +1,126 @@
 import React from 'react';
-import { 
-    View, 
-    Text, 
-    Button, 
-    TouchableOpacity, 
+import {
+    View,
+    Text,
+    TouchableOpacity,
     TextInput,
     Platform,
     StyleSheet,
-    ScrollView,
-    StatusBar
+    ScrollView
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function SigninScreen({navigation}){
-    const shadowOpt = {
-        width:310,
-        
-        height:50,
-        color:"#000",
-        border:3.5,
-        borderRadius:14,
-        radius:10,
-        opacity:0.2,
-        x:0,
-        y:3,
-        style:{marginVertical:5}
-    }
+export default function SigninScreen({ navigation }) {
+
+    return (
+        <View style={styles.container}>
+
+            <View style={styles.header}>
+                <Text style={styles.text_header}>Welcome!</Text>
+            </View>
+
+            <Animatable.View
+                animation="fadeInUpBig"
+                style={styles.footer}
+            >
+
+
+                <ScrollView>
+                    <Text style={[styles.text_footer]}>Username</Text>
+                    <View style={styles.action}>
+                        <Icon
+                            name="person"
+                            color="#05375a"
+                            size={20}
+                        />
+                        <TextInput
+                            placeholder="Your Username"
+                            placeholderTextColor="#a6a6a6"
+                            style={styles.textInput}
+                            autoCapitalize="none"
+
+                        />
 
 
 
-return (
-  <View style={styles.container}>
-      
-    <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome!</Text>
-    </View>
+                    </View>
 
-    <Animatable.View 
-        animation="fadeInUpBig"
-        style={styles.footer}
-    >
-        
-      
-        <ScrollView>
-        <Text style={[styles.text_footer]}>Username</Text>
-        <View style={styles.action}>
-        <Icon
-                name="person"
-                color="#05375a"
-                size={20}
-            />
-            <TextInput 
-                placeholder="Your Username"
-                 placeholderTextColor="#a6a6a6"
-                style={styles.textInput}
-                autoCapitalize="none"
-              
-            />
-            
-            
-            
+                    <Text style={[styles.text_footer, {
+                        marginTop: 35
+                    }]}>Password</Text>
+                    <View style={styles.action}>
+                        <Icon
+                            name="lock"
+                            color="#05375a"
+                            size={20}
+                        />
+                        <TextInput
+                            placeholder="Your Password"
+                            secureTextEntry={true}
+                            style={styles.textInput}
+                            autoCapitalize="none"
+
+                        />
+                        <TouchableOpacity>
+
+                            <Icon
+                                name="visibility"
+                                color="black"
+                                size={20}
+                            />
+
+                        </TouchableOpacity>
+                    </View>
+
+
+
+
+                    <View style={styles.button}>
+                        <TouchableOpacity
+                            style={styles.signIn}
+                            onPress={() => navigation.navigate('home')}
+                        >
+                            <LinearGradient
+                                colors={['#3498db', '#A6BDF5']}
+                                style={styles.signIn}
+                            >
+                                <Text style={[styles.textSign, {
+                                    color: '#fff'
+                                }]} >Login</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+
+
+                    </View>
+                    <View>
+                        <TouchableOpacity onPress={() => navigation.navigate('register')}
+                            style={[styles.logIn,
+                            {
+                                borderColor: '#344955',
+
+                                borderWidth: 1,
+                                marginTop: 15
+                            }]}
+                        >
+
+                            <Text style={styles.textSign1}>Signup</Text>
+
+
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
+            </Animatable.View>
+
         </View>
-
-        <Text style={[styles.text_footer, {
-            marginTop: 35
-        }]}>Password</Text>
-        <View style={styles.action}>
-        <Icon
-                name="lock"
-                color="#05375a"
-                size={20}
-            />
-            <TextInput 
-                placeholder="Your Password"
-                secureTextEntry={true}
-                style={styles.textInput}
-                autoCapitalize="none"
-               
-            />
-            <TouchableOpacity>
-            
-            <Icon
-              name="visibility"
-              color="black"
-             size={20}
-           />
-              
-            </TouchableOpacity>
-        </View>
-
-        
-        
-       
-        <View style={styles.button}>
-                  <TouchableOpacity
-                      style={styles.signIn}
-                      onPress={() => navigation.navigate('home')}
-                  >
-                  <LinearGradient
-                      colors={['#3498db','#A6BDF5']}
-                      style={styles.signIn}
-                  >
-                      <Text style={[styles.textSign, {
-                          color:'#fff'
-                      }]} >Login</Text>
-                  </LinearGradient>
-                  </TouchableOpacity>
-  
-                 
-              </View>
-        <View>
-        <TouchableOpacity onPress={()=>navigation.navigate('register')}
-                       style={[styles.logIn,
-                      {borderColor:'#344955',    
-                      
-                      borderWidth:1,
-                      marginTop:15}]}
-                      >
-
-                        <Text style={styles.textSign1}>Signup</Text>
-
-                      
-            </TouchableOpacity>
-        </View>
-        </ScrollView>
-    </Animatable.View>
-    
-  </View>
-)
+    )
 }
- 
+
 const styles = StyleSheet.create({
     container: {
-      flex: 1, 
-      backgroundColor: '#3498db'
+        flex: 1,
+        backgroundColor: '#3498db'
     },
     header: {
         flex: 1,
@@ -176,7 +161,7 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         marginTop: 50,
-    
+
     },
     signIn: {
         width: '100%',
@@ -191,12 +176,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10
-      },
-      textSign1: {
+    },
+    textSign1: {
         fontSize: 18,
         fontWeight: 'bold',
-        color:'#383838'
-      },
+        color: '#383838'
+    },
     textSign: {
         fontSize: 18,
         fontWeight: 'bold'
@@ -209,4 +194,4 @@ const styles = StyleSheet.create({
     color_textPrivate: {
         color: 'grey'
     }
-  });
+});
