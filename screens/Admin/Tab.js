@@ -1,9 +1,9 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import Chat from './Homecomponent/Chat';
-import Notice from './Homecomponent/Notice';
-import Home from './Homecomponent/Home';
+import Chat from './Chat';
+import Notice from './Notice';
+import Home from './Home';
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 

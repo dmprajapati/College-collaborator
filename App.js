@@ -1,5 +1,5 @@
 import React from 'react';
-import MyTabs from './Routing'
+import MyTabs from './screens/Faculty/Tab'
 
 
 export default function App() {
